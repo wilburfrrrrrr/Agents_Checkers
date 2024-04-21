@@ -1,0 +1,1 @@
+#autocheckers agente q learning vs agente minimax

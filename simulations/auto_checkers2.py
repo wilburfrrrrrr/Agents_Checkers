@@ -1,0 +1,1 @@
+#autocheckers agente minimax con metodo de evaluación 1 vs agente minimax con metodo de evaluación 2

@@ -1,0 +1,1 @@
+#autocheckers agente minimax vs agente random
