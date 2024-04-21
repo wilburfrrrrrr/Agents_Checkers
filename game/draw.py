@@ -1,5 +1,5 @@
 import turtle
-from game.game import CheckersGame
+from game import CheckersGame
 
 
 def draw_board(game):
@@ -9,8 +9,8 @@ def draw_board(game):
 	turtle.goto(-200, 200)
 	turtle.pd()
 	turtle.color('black')
-	for _ in range(4):
-		for _ in range(4):
+	for _ in range(8):
+		for _ in range(8):
 			turtle.begin_fill()
 			for _ in range(4):
 				turtle.forward(50)
