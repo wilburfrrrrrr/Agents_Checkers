@@ -1,5 +1,7 @@
 import numpy as np
 from game.evaluate import score_count
+from minimax import MinimaxAgent
+from copy import deepcopy
 
 
 class QLearningAgent:
@@ -28,19 +30,32 @@ class QLearningAgent:
 			best_actions = [action for action, q_value in zip(possible_actions, q_values) if q_value == max_q_value]
 			return np.random.choice(best_actions)
 
+	def get_reward(self, state):
+		if state.is_over():
+			if state.get_winner() == 1: return 100  
+			elif state.get_winner() == 2: return -100 
+			else: return 0
+		return score_count(state)
+	
+	def get_next_state(self, state, action):
+		next_state = deepcopy(state)
+		next_state.move(action)
+		return next_state
 
-	def q_learning(self, board, episodes):
+	def q_learning(self, board, episodes = 50):
 		for episode in range(episodes):
-			state = board
+			player_1 = MinimaxAgent()
+			player_2 = MinimaxAgent()
+			state = deepcopy(board)
 			while not state.is_over():
-				possible_actions = state.get_possible_moves()
-				action = self.choose_action(state, possible_actions)
-				next_state = state.move(action)
-				reward = score_count(next_state)
+				if state.whose_turn() == 1:
+					action, _ = player_1.minimax_alpha_beta(state, 3, True, -float('inf'), float('inf'))
+				else:
+					action, _ = player_2.minimax_alpha_beta(state, 3, False, -float('inf'), float('inf'))
+				next_state = self.get_next_state(state, action)
+				reward = self.get_reward(next_state)
 				self.update_q_value(state, action, reward, next_state)
 				state = next_state
-			if episode % 1000 == 0:
-				print('Episode: ', episode)
 
 if __name__ == '__main__':
 	pass

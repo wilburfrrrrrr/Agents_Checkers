@@ -6,7 +6,7 @@ class RandomAgent:
 	def __init__(self):
 		pass
 
-	def random_agent(board):
+	def random_agent(self, board):
 		while True:
 			moves = board.get_possible_moves()
 			if not moves:

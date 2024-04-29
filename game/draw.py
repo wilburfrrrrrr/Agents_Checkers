@@ -72,3 +72,4 @@ if __name__ == '__main__':
 	setup_screen()
 	draw_board()
 	update_board(board)
+	turtle.mainloop()

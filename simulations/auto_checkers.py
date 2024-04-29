@@ -10,7 +10,7 @@ def play_game():
 	while not game.is_over():
 		if game.turn == 1:
 			move = minimax_agent.minimax(game, 3, True)
-			move = minimax_agent.minimax_alpha_beta(game, 3, True, -float('inf'), float('inf'))
+			# move = minimax_agent.minimax_alpha_beta(game, 3, True, -float('inf'), float('inf'))
 		else:
 			move = random_agent.random_agent(game)
 		game.move(move)
@@ -20,4 +20,4 @@ def play_game():
 	print(f"Ganador: {game.get_winner()}")
 
 if __name__ == '__main__':
-	play_game
+	play_game()
