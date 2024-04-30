@@ -49,9 +49,9 @@ class QLearningAgent:
 			state = deepcopy(board)
 			while not state.is_over():
 				if state.whose_turn() == 1:
-					action, _ = player_1.minimax_alpha_beta(state, 3, True, -float('inf'), float('inf'))
+					action, _ = player_1.minimax_alpha_beta(state, 4, True, -float('inf'), float('inf'))
 				else:
-					action, _ = player_2.minimax_alpha_beta(state, 3, False, -float('inf'), float('inf'))
+					action, _ = player_2.minimax_alpha_beta(state, 4, False, -float('inf'), float('inf'))
 				next_state = self.get_next_state(state, action)
 				reward = self.get_reward(next_state)
 				self.update_q_value(state, action, reward, next_state)

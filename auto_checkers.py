@@ -39,6 +39,7 @@ def play_game():
 
 def play_games(number_of_games = 32):
 	for game in range(number_of_games):
+		print(f"\nJuego {game}")
 		winner, final_score = play_game()
 		if winner == 1:
 			winners[game] = "Minimax"
@@ -48,6 +49,6 @@ def play_games(number_of_games = 32):
 			winners[game] = "Empate"
 
 if __name__ == '__main__':
-	play_game()
-	# play_games()
-	# plot_winners()	
+	# play_game()
+	play_games()
+	plot_winners()	
