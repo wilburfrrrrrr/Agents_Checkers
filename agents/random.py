@@ -2,9 +2,6 @@ import random
 from game.game import CheckersGame
 
 class RandomAgent:
-	
-	def __init__(self):
-		pass
 
 	def random_agent(self, board):
 		while True:

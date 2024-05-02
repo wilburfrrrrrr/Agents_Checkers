@@ -2,30 +2,9 @@ import random
 from game.game import CheckersGame
 from game.evaluate import score_count, score_count_upgrade
 from copy import deepcopy
-# from game.board import CheckerBoard
-
-#bpard = CheckerBoard()
-
-# def score_count(board):
-# 	white_score = 0
-# 	black_score = 0
-# 	for piece in board.board.pieces:
-# 		if piece.player == 1:
-# 			white_score += 1
-# 		elif piece.player == 2:
-# 			black_score += 1
-# 		if piece.king:
-# 			if piece.player == 1:
-# 				white_score += 2
-# 			elif piece.player == 2:
-# 				black_score += 2
-# 	return white_score - black_score
 
 
 class MinimaxAgent:
-	
-	# def __init__(self, depth):
-	# 	self.depth = depth
 
 	def minimax(self, board, depth, maximizing_player):
 		if depth == 0 or board.is_over():
@@ -120,6 +99,8 @@ class MinimaxAgent:
 					if beta <= alpha:
 						break
 			return best_move, min_eval
+		
+		
 if __name__ == '__main__':
 	board = CheckersGame()
 	print(score_count(board))

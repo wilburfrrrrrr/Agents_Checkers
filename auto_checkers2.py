@@ -17,13 +17,14 @@ def play_game():
 	game = CheckersGame()
 	minimax_agent = MinimaxAgent()
 	turn = 0
+	
 	while not game.is_over():
 		turn += 1
 		print(f"Número de turno: {turn}")
 		if game.whose_turn() == 1:
-			move, _ = minimax_agent.minimax_alpha_beta2(game, 5, True, float('-inf'), float('inf'))
+			move, _ = minimax_agent.minimax_alpha_beta2(game, 4, True, float('-inf'), float('inf'))
 		else:
-			move, _ = minimax_agent.minimax_alpha_beta(game, 5, False, float('-inf'), float('inf'))
+			move, _ = minimax_agent.minimax_alpha_beta(game, 4, False, float('-inf'), float('inf'))
 		print(f"Jugador {game.whose_turn()} mueve: {move}")
 		game.move(move)
 		print(f"Puntaje: {score_count_upgrade(game)}")
@@ -47,6 +48,6 @@ def play_games(number_of_games = 10):
 			winners[game] = "Empate"
 
 if __name__ == '__main__':
-	play_game()
-	# play_games()
-	# plot_winners()
+	# play_game()
+	play_games()
+	plot_winners()
