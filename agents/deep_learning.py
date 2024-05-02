@@ -35,7 +35,7 @@ class DeepLearningAgent:
 		return np.array(action)
 
 	def decode_action(self, action):
-		return action
+		return action.to_list()
 
 	def train(self, board, epochs=50):
 		model = self.model
