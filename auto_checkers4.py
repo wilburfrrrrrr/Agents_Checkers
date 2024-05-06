@@ -30,7 +30,7 @@ def play_game(player_1, player_2):
 		turn += 1
 		print(f"Número de turno: {turn}")
 		if game.whose_turn() == 1:
-			move = player_1.select_move(game)
+			move = player_1.select_move(game.get_possible_moves())
 		else:
 			move = player_2.minimax(game, 3, False)
 		print(f"Jugador {game.whose_turn()} mueve: {move}")

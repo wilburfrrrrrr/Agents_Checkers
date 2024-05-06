@@ -2,7 +2,6 @@ import random
 from game.evaluate import score_count_upgrade
 from agents.minimax import MinimaxAgent
 from copy import deepcopy
-# import json
 
 class QLearningAgent:
 	def __init__(self, learning_rate=0.1, discount_factor=0.9):
@@ -42,7 +41,7 @@ class QLearningAgent:
 		next_state.move(action)
 		return next_state
 
-	def q_learning(self, board, episodes = 50):
+	def q_learning(self, board, episodes = 100):
 		for episode in range(episodes):
 			player_1 = MinimaxAgent()
 			player_2 = MinimaxAgent()

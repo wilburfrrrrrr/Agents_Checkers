@@ -23,7 +23,7 @@ def play_game():
 		turn += 1
 		print(f"Número de turno: {turn}")
 		if game.whose_turn() == 1:
-			move, _ = minimax_agent.minimax(game, 5, True)
+			move, _ = minimax_agent.minimax(game, 3, True)
 			# move = minimax_agent.minimax_alpha_beta(game, 3, True, -float('inf'), float('inf'))
 		else:
 			move = random_agent.random_agent(game)
